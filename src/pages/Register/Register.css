@@ -1,0 +1,16 @@
+.registration-section .container .login-card {
+    height: 100vh !important;
+  }
+  .login-card-btn {
+    border: 1px solid gray;
+    padding: 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    height: 300px;
+    align-items: center;
+  }
+  .user-photo img{
+    border-radius: 50%;
+  }
