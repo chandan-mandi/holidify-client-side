@@ -42,3 +42,6 @@
 h2 {
   font-family: 'IBM Plex Serif', serif;
 }
+.card-img-top {
+  height: 200px !important;
+}

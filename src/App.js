@@ -1,25 +1,43 @@
 import logo from './logo.svg';
-import './App.css'; 
+import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './shared/Header/Header';
 import Home from './pages/Home/Home/Home';
-import Donation from './pages/Donation/Donation';
 import Events from './pages/Events/Events';
 import Blog from './pages/Blog/Blog';
 import Register from './pages/Register/Register';
+import Services from './pages/Services/Services';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PlaceDetails from './pages/PlaceDetails/PlaceDetails';
+import AuthProvider from './Context/AuthProvider';
+import Booking from './pages/Booking/Booking';
+import Hotes from './pages/Hotels/Hotels';
+import Hotels from './pages/Hotels/Hotels';
 
 function App() {
   return (
-    <div className="App">
-       <Router>
+    <AuthProvider>
+      <Router>
         <Header />
         <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
           <Route path="/home">
             <Home></Home>
           </Route>
-          <Route path="/donation">
-            <Donation></Donation>
+          <Route path="/services">
+            <Services></Services>
           </Route>
+          <PrivateRoute exact path="/place/:id">
+            <PlaceDetails></PlaceDetails>
+          </PrivateRoute>
+          <PrivateRoute exact path="/hotels">
+            <Hotels></Hotels>
+          </PrivateRoute>
+          <PrivateRoute path="/booking/:id">
+            <Booking></Booking>
+          </PrivateRoute>
           <Route path="/events">
             <Events></Events>
           </Route>
@@ -31,7 +49,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </AuthProvider>
   );
 }
 

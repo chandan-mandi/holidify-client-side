@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form, FormControl, Button } from 'react-bootstrap';
+import { Container, Form, FormControl, Button, Row, Col } from 'react-bootstrap';
 import './Banner.css';
 
 const Banner = () => {
@@ -7,18 +7,16 @@ const Banner = () => {
         <div className="banner-section d-flex align-items-center">
             <Container>
                 <div className="text-center">
-                    <div>
-                        <h2>I GROW BY HELPING PEOPLE IN NEED</h2>
-                        <Form className="d-flex w-50 mx-auto">
-                            <FormControl
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
-                    </div>
+                    <Row>
+                        <Col md={6}></Col>
+                        <Col md={6}>
+                            <div>
+                                <h2>Amazing Tours And Fun Adventures Waiting For You</h2>
+                                <Button variant="outline-success">Find Your Paradise</Button>
+                            </div>
+                        </Col>
+                    </Row>
+
                 </div>
 
             </Container>

@@ -1,12 +1,24 @@
 import React from 'react';
 import { Button, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import useFirebase from '../../hooks/useFirebase';
 import './Register.css';
 
 const Register = () => {
-    const { signInUsingGoogle, user, logout } = useFirebase();
+    const { signInUsingGoogle, user, logout } = useAuth();
     console.log(user);
+
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home';
+
+    const handleGoogleLogin = () => {
+        signInUsingGoogle()
+        
+            history.push(redirect_uri)
+        
+    }
     return (
         <div className="registration-section">
             <Container>
@@ -15,7 +27,7 @@ const Register = () => {
                         {!user?.email ?
                             <div>
                                 <h4>Login With</h4>
-                                <Button onClick={signInUsingGoogle} variant="primary">Sign In Using Google</Button>
+                                <Button onClick={handleGoogleLogin} variant="primary">Sign In Using Google</Button>
                                 <p>Don't have an account? <span>Create an account</span></p>
                             </div>
                             :

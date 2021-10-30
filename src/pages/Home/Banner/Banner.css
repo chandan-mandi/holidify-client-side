@@ -1,7 +1,10 @@
 .banner-section {
-    background:linear-gradient(to right, transparent, mistyrose),  url(../../../images/banner.png);
+    background:linear-gradient(to right, transparent, mistyrose),  url(../../../images/banner-bg-2.jpg);
+    background-size: cover;
     /* background-image: opacity(0.5); */
-    height: 50vh;
+    height: 85vh;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom center;
 }
