@@ -23,16 +23,15 @@ const Header = () => {
                         <Nav.Link as={Link} to="/items">Items</Nav.Link>
                         <Nav.Link as={Link} to="/options">Options</Nav.Link>
                         <Nav.Link as={Link} to="/plans">Plans</Nav.Link>
+                        <Nav.Link as={Link} to="/orders">My Orders</Nav.Link>
                         { !user.email ?
                             <Link to="/register">
                                 <Button variant="primary" className="me-2">Register</Button>
                             </Link> :
                             
                                 <Button onClick={logout} variant="danger" className="me-2">Logout</Button>
-                            
-
                         }
-                        <Link to="/admin">
+                        <Link to="/adminDashboard">
                             <Button variant="light">Admin</Button>
                         </Link>
                         {/* <NavLink to="/faq" style={activeStyle}>FAQs</NavLink> */}

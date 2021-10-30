@@ -27,7 +27,7 @@ const Services = () => {
 
                                     </div>
                                     <div className="info">
-                                        <p>{service.description.slice(0,25)}...</p>
+                                        <p>{service.description?.slice(0,25)}...</p>
                                     </div>
                                     <div className="tags">
                                         <span className="fantasy">Read More</span>

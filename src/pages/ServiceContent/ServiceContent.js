@@ -39,7 +39,7 @@ const ServiceContent = (props) => {
 
                     </div>
                     <div className="info">
-                        <p>{description.slice(0, 25)}...</p>
+                        <p>{description?.slice(0, 25)}...</p>
                     </div>
                     <div className="tags">
                         <span onClick={() => handleDetails(id)} className="fantasy">Read More</span>

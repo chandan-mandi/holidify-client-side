@@ -13,6 +13,8 @@ import AuthProvider from './Context/AuthProvider';
 import Booking from './pages/Booking/Booking';
 import Hotes from './pages/Hotels/Hotels';
 import Hotels from './pages/Hotels/Hotels';
+import MyOrders from './MyOrders/MyOrders';
+import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
 
 function App() {
   return (
@@ -44,6 +46,12 @@ function App() {
           <Route path="/blog">
             <Blog></Blog>
           </Route>
+          <PrivateRoute path="/orders">
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/adminDashboard">
+            <AdminDashboard></AdminDashboard>
+          </PrivateRoute>
           <Route path="/register">
             <Register></Register>
           </Route>
