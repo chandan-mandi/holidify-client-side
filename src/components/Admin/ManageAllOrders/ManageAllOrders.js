@@ -5,10 +5,26 @@ const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://dry-ravine-15402.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
+
+    const handleDelete = (id) => {
+        const url = `https://dry-ravine-15402.herokuapp.com/deleteOrder/${id}`
+        fetch(url, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount){
+                alert('Deleted Successfully')
+                const remaining = orders.filter(order => order?._id !== id)
+                setOrders(remaining)
+            }
+        })
+    }
     return (
         <div>
             <h2>Total Booking {orders.length}</h2>
@@ -25,11 +41,11 @@ const ManageAllOrders = () => {
                 {orders.map((order, index) => (
                     <tbody>
                         <tr>
-                            <td>{index}</td>
-                            <td>{order.name}</td>
+                            <td>{index+1}</td>
+                            <td>{order.name.toUpperCase()}</td>
                             <td>{order.email}</td>
-                            <td>{order.hotelId}</td>
-                            <Button variant="warning bg-warning m-1">Delete</Button>
+                            <td>{order.date}</td>
+                            <Button onClick={()=> handleDelete(order._id)} variant="warning bg-warning m-1">Delete</Button>
                         </tr>
                     </tbody>
                 ))}

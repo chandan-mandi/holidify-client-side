@@ -9,20 +9,26 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/places')
+        fetch('https://dry-ravine-15402.herokuapp.com/places')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
 
-    
+
     return (
         <div className="services-section py-3">
             <Container>
-                <h2 className="text-center my-5 w-50 mx-auto">Choose The Destination Just Right For Your Vacation</h2>
-                <Row>
+                <h2 className="spe-title text-center my-3 w-50 mx-auto">Popular <span>Cities</span> </h2>
+                <div class="title-line text-center">
+                    <div class="tl-1"></div>
+                    <div class="tl-2"></div>
+                    <div class="tl-3"></div>
+                </div>
+                <p className="text-center px-5 mx-5">World's leading Hotel Booking website,Over 30,000 Hotel rooms worldwide. Book Hotel rooms and enjoy your holidays with distinctive experience</p>
+                <Row className="py-5">
                     {
-                        services.map(service =>
-                            <ServiceContent service={service}></ServiceContent>
+                        services.slice(0, 8).map(service =>
+                            <ServiceContent key={service._id} service={service}></ServiceContent>
                         )
                     }
                 </Row>

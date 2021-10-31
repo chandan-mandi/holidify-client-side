@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Col, Form, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
@@ -7,64 +8,74 @@ import './Booking.css';
 
 const Booking = () => {
     const { id } = useParams();
-    const {user} = useAuth();
+    const { user } = useAuth();
+    const [specificHotel, setSpecificHotel] = useState({});
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
         data.status = "pending";
         data.email = user.email;
         data.hotelId = id;
-        axios.post('http://localhost:5000/order', data)
-        .then(res => {
-            if(res.data.insertedId){
-                alert('Booking Successfully')
-                reset();
-            }
-        })
+        data.hotelName = specificHotel.hotelName;
+        axios.post('https://dry-ravine-15402.herokuapp.com/order', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    window.confirm('Booking Successfully')
+                    reset();
+                }
+            })
     }
     console.log(id);
-    // const [hotelDetals, setHotelDetails] = useState([]);
-    const [specificHotel, setSpecificHotel] = useState({});
-
-    /*  useEffect(() => {
-         fetch('http://localhost:5000/hotels')
-         .then(res => res.json())
-         .then(data => setHotelDetails(data))
-     },[])
- 
-     useEffect(() => {
-         if(hotelDetals.length>0){
-             const matchedData = hotelDetals.find(hotel => hotelDetals._id = id)
-             setSpecificHotel(matchedData)
-         }
-     },[hotelDetals, id]) */
 
     useEffect(() => {
-        const url = `http://localhost:5000/hotels/${id}`
+        const url = `https://dry-ravine-15402.herokuapp.com/hotels/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setSpecificHotel(data))
     }, [])
-
+    console.log(specificHotel);
 
     return (
         <div className="booking-form">
-            <h2>Booking page</h2>
-            <p>Hotel id: {id} </p>
-            <h2>Name: {specificHotel.hotelName}</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input defaultValue="Chandan Mandi" {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
-                <input type="number" {...register("mobile", { required: true })} placeholder="Mobile Number"/> 
-                <input type="text" {...register("userName", { required: true })} placeholder="Username/Email"/>
-                <input {...register("photo", { required: true })} placeholder="Photo url"/>
+            <div className="text-center">
+            <h2>Fill Out The Form and Make a Booking</h2>
+            <h2>You Choose: <span>{specificHotel.hotelName}</span> Hotel</h2>
+            {/* <h4>Facilities: <span>{specificHotel.facilities}</span> </h4> */}
+            </div>
+            <div className="container py-5">
+            <Row className="form-bg ">
+                
+                <Col md={6} className="main-form">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Form.Group className="mb-3" controlId="formGridAddress1">
+                            <Form.Label>Full Name</Form.Label>
+                            <Form.Control type="text" {...register("name", { required: true })} placeholder="Enter Your Name" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formGridAddress1">
+                            <Form.Label>Mobile Number</Form.Label>
+                            <Form.Control type="text" {...register("mobileNumber")} placeholder="Enter Your Phone Number" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formGridAddress1">
+                            <Form.Label>Check-In Date</Form.Label>
+                            <Form.Control type="date" {...register("date")} placeholder="Booking Date" />
+                        </Form.Group>
+                        {/*  <input defaultValue="Chandan Mandi" {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
+                <input type="number" {...register("mobile", { required: true })} placeholder="Mobile Number" />
+                <input type="date" {...register("date", { required: true })} placeholder="Date" />
+                <input type="text" {...register("userName", { required: true })} placeholder="Username/Email" />
+                <input {...register("photo", { required: true })} placeholder="Photo url" />
 
-                <select {...register("gender")}>
+                <select {...register("gender")} className="w-25">
                     <option value="female">female</option>
                     <option value="male">male</option>
                     <option value="other">other</option>
-                </select>
-                <input type="submit" />
-            </form>
+                </select> */}
+                        <input type="submit" value="Booking" className="btn btn-outline-success"/>
+                    </form>
+                </Col>
+               
+            </Row>
+            </div>
         </div>
     );
 };

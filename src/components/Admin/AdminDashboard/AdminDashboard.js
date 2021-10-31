@@ -6,7 +6,7 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 const AdminDashboard = () => {
     const [control, setControl] = useState("allOrders")
     return (
-        <div className="admin-dashboard">
+        <div className="admin-dashboard container">
             <Row>
                 <Col md={3}>
                     <h2>Dashboard</h2>

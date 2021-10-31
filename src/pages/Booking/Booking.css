@@ -1,11 +1,36 @@
-.booking-form form {
+/* .booking-form form {
     display: flex;
     flex-direction: column;
-    /* width: 40%; */
     justify-content: center;
     align-items: center;
 }
 .booking-form form input, textarea {
     width: 40%;
     margin-bottom: 10px;
+} */
+.booking-form h2 span {
+    color: rgb(16 68 255);
+}
+.booking-form h4 span {
+    color: red;
+}
+.booking-form {
+    background: url(https://www.clubmahindra.com/themes/prospect/assets/images/lead-form-bg.jpg)
+}
+.booking-form .main-form {
+    background: url(https://www.clubmahindra.com/storage/app/media/form_main_img.png);
+    background-size: cover;
+    height: 554px;
+    width: 707px;
+}
+.booking-form .form-bg.row {
+    position: relative;
+}
+.booking-form form {
+    position: absolute;
+    top: 220px;
+    left: 122px;
+}
+.booking-form input#formGridAddress1 {
+    width: 298px;
 }

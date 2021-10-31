@@ -12,25 +12,25 @@ const PlaceDetails = () => {
     console.log(specificDetail);
 
     useEffect(() => {
-        fetch('http://localhost:5000/places')
+        fetch('https://dry-ravine-15402.herokuapp.com/places')
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [])
 
     useEffect(() => {
         if(details.length>0){
-            const matchedData = details.find(detail => detail.id===id)
+            const matchedData = details.find(detail => detail._id===id)
             setSpecificDetail(matchedData);
         }
     },[details, id])
     return (
         <Container className="place-details">
-            <h2 className="text-center py-2">Plan Your Trip To {specificDetail.projectName}</h2>
+            <h2 className="text-center py-2">Plan Your Trip To {specificDetail?.placeName}</h2>
             <Card>
                 <div className="card-img card-img-top">
-                    <Card.Img src={specificDetail.img} />
+                    <Card.Img src={specificDetail?.img} />
                     <Card.Body>
-                        <Card.Title>{specificDetail.projectName}</Card.Title>
+                        <Card.Title>{specificDetail.placeName}</Card.Title>
                     </Card.Body>
                     <p>{specificDetail.description}</p>
                 </div>

@@ -5,8 +5,7 @@ import './ServiceContent.css';
 import img1 from '../../images/travels image/backgrounds/banner-bg.jpg'
 
 const ServiceContent = (props) => {
-    const { id, projectName, img, description } = props.service;
-    console.log(projectName);
+    const { _id, placeName, tagline, img, description } = props.service;
 
     const history = useHistory();
 
@@ -15,26 +14,13 @@ const ServiceContent = (props) => {
         history.push(uri)
     }
     return (
-
-        /*  <Col lg={3} md={4} sm={12} >
-             <div onClick={() => handleDetails(id)} className="service-content-card">
-                 <Card>
-                     <div className="card-img card-img-top">
-                         <Card.Img src={img} />
-                         <Card.Body>
-                             <Card.Title>{projectName}</Card.Title>
-                         </Card.Body>
-                     </div>
-                 </Card>
-             </div>
-         </Col> */
         <Col lg={3} md={6} className="service-col">
             <div className="service-card">
                 <div className="poster">
                     <img src={img} alt="" />
                 </div>
                 <div className="details">
-                    <h2>{projectName} <br /> <span>City of Joy</span> </h2>
+                    <h2>{placeName} <br /> <span>{tagline}</span> </h2>
                     <div className="rating">
 
                     </div>
@@ -42,7 +28,7 @@ const ServiceContent = (props) => {
                         <p>{description?.slice(0, 25)}...</p>
                     </div>
                     <div className="tags">
-                        <span onClick={() => handleDetails(id)} className="fantasy">Read More</span>
+                        <span onClick={() => handleDetails(_id)} className="fantasy">Read More</span>
                         <Link to="/hotels"><span className="romance">Book Hotel</span></Link>
                     </div>
 

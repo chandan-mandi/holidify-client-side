@@ -15,6 +15,7 @@ import Hotes from './pages/Hotels/Hotels';
 import Hotels from './pages/Hotels/Hotels';
 import MyOrders from './MyOrders/MyOrders';
 import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
+import Footer from './shared/Footer/Footer';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
             <Register></Register>
           </Route>
         </Switch>
+        <Footer/>
       </Router>
     </AuthProvider>
   );

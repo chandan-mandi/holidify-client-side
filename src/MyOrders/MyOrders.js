@@ -6,13 +6,13 @@ const MyOrders = () => {
     const {user} = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${user?.email}`)
+        fetch(`https://dry-ravine-15402.herokuapp.com/myOrders/${user?.email}`)
         .then(res => res.json())
         .then(data => setOrders(data))
     },[user?.email])
 
     const handleDelete = (id) => {
-        const url = `http://localhost:5000/deleteOrder/${id}`
+        const url = `https://dry-ravine-15402.herokuapp.com/deleteOrder/${id}`
         fetch(url, {
             method: 'DELETE'
         })
@@ -32,20 +32,22 @@ const MyOrders = () => {
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>SL No.</th>
                         <th>Name</th>
-                        <th>Email</th>
+                        <th>Hotel</th>
                         <th>Date</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 {orders.map((order, index) => (
                     <tbody>
                         <tr>
-                            <td>{index}</td>
+                            <td>{index+1}</td>
                             <td>{order.name}</td>
-                            <td>{order.email}</td>
-                            <td>{order.hotelId}</td>
+                            <td>{order.hotelName}</td>
+                            <td>{order.date}</td>
+                            <td>{order.status}</td>
                             <Button onClick={()=> handleDelete(order._id)} variant="warning bg-warning m-1">Delete</Button>
                         </tr>
                     </tbody>
