@@ -9,7 +9,7 @@ const Update = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/orders/${id}`
+        const url = `https://dry-ravine-15402.herokuapp.com/orders/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {
