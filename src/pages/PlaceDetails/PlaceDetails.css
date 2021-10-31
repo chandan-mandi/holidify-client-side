@@ -1,3 +1,6 @@
 .place-details .card-img {
     height: 60vh !important;
 }
+.place-details .card {
+    border: none !important;
+}

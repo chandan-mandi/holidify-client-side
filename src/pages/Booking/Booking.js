@@ -42,7 +42,7 @@ const Booking = () => {
             <h2>You Choose: <span>{specificHotel.hotelName}</span> Hotel</h2>
             {/* <h4>Facilities: <span>{specificHotel.facilities}</span> </h4> */}
             </div>
-            <div className="container py-5">
+            <div className="container pt-5">
             <Row className="form-bg ">
                 
                 <Col md={6} className="main-form">
@@ -59,17 +59,6 @@ const Booking = () => {
                             <Form.Label>Check-In Date</Form.Label>
                             <Form.Control type="date" {...register("date")} placeholder="Booking Date" />
                         </Form.Group>
-                        {/*  <input defaultValue="Chandan Mandi" {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
-                <input type="number" {...register("mobile", { required: true })} placeholder="Mobile Number" />
-                <input type="date" {...register("date", { required: true })} placeholder="Date" />
-                <input type="text" {...register("userName", { required: true })} placeholder="Username/Email" />
-                <input {...register("photo", { required: true })} placeholder="Photo url" />
-
-                <select {...register("gender")} className="w-25">
-                    <option value="female">female</option>
-                    <option value="male">male</option>
-                    <option value="other">other</option>
-                </select> */}
                         <input type="submit" value="Booking" className="btn btn-outline-success"/>
                     </form>
                 </Col>

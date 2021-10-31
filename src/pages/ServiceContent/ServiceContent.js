@@ -1,22 +1,25 @@
 import { React } from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Card, Col, Spinner } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import './ServiceContent.css';
 import img1 from '../../images/travels image/backgrounds/banner-bg.jpg'
 
 const ServiceContent = (props) => {
+    console.log(props);
     const { _id, placeName, tagline, img, description } = props.service;
-
+   
     const history = useHistory();
+    
 
     const handleDetails = (id) => {
         const uri = `/place/${id}`;
         history.push(uri)
     }
     return (
-        <Col lg={3} md={6} className="service-col">
+        
+        <Col lg={3} md={6} sm={6} className="service-col">
             <div className="service-card">
-                <div className="poster">
+             <div className="poster">
                     <img src={img} alt="" />
                 </div>
                 <div className="details">
@@ -45,6 +48,7 @@ const ServiceContent = (props) => {
             </div>
         </Col>
 
+        
 
 
 

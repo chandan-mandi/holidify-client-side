@@ -51,11 +51,6 @@ const AddPlace = () => {
                         <Form.Control type="textarea" {...register("description", { required: true, minLength: 20 })} placeholder="Write something about this place" />
                     </Form.Group>
 
-                    {/* <input defaultValue="Chandan Mandi" {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
-                    <input type="number" {...register("mobile", { required: true })} placeholder="Mobile Number" />
-                    <input type="text" {...register("userName", { required: true })} placeholder="Username/Email" />
-                    <input {...register("photo", { required: true })} placeholder="Photo url" /> */}
-
                     <input type="submit"  className="btn btn-success"/>
                 </form>
             </div>

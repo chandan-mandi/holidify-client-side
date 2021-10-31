@@ -76,3 +76,44 @@ img.card-img-top.choose-card-img {
   font-size: 44px;
   font-weight: 600;
 }
+.navbar-expand-lg .navbar-collapse {
+  justify-content: flex-end;
+}
+.card-title.h5 {
+  height: 45px;
+}
+/* medai query  */
+@media only screen and (max-width: 968px) {
+  .banner-section {
+    height: 80vh !important;
+  }
+}
+@media only screen and (max-width: 560px) {
+  .banner-section {
+    height: 50vh !important;
+  }
+  .spe-desc {
+    padding: 2px !important;
+  }
+  .main-form form div {
+    margin: 4px !important;
+}
+.booking-form {
+  height: 85vh;
+}
+.booking-form form {
+  position: absolute;
+  top: 0 !important;
+  left: 30px !important;
+  background: #EDEEF2;
+  padding: 20px;
+  border-radius: 5px;}
+.booking-form .main-form {
+  position: absolute;
+    top: 0;
+    left: 0;
+    background: none !important;
+    padding: 20px;
+    border-radius: 5px;
+}
+}

@@ -16,6 +16,8 @@ import Hotels from './pages/Hotels/Hotels';
 import MyOrders from './MyOrders/MyOrders';
 import AdminDashboard from './components/Admin/AdminDashboard/AdminDashboard';
 import Footer from './shared/Footer/Footer';
+import Contact from './pages/Contact/Contact';
+import Update from './components/Admin/Update/Update';
 
 function App() {
   return (
@@ -41,14 +43,14 @@ function App() {
           <PrivateRoute path="/booking/:id">
             <Booking></Booking>
           </PrivateRoute>
-          <Route path="/events">
-            <Events></Events>
-          </Route>
-          <Route path="/blog">
-            <Blog></Blog>
+          <Route path="/contact">
+            <Contact></Contact>
           </Route>
           <PrivateRoute path="/orders">
             <MyOrders></MyOrders>
+          </PrivateRoute>
+          <PrivateRoute path="/update/:id">
+            <Update></Update>
           </PrivateRoute>
           <PrivateRoute path="/adminDashboard">
             <AdminDashboard></AdminDashboard>

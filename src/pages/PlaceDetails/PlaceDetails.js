@@ -18,24 +18,28 @@ const PlaceDetails = () => {
     }, [])
 
     useEffect(() => {
-        if(details.length>0){
-            const matchedData = details.find(detail => detail._id===id)
+        if (details.length > 0) {
+            const matchedData = details.find(detail => detail._id === id)
             setSpecificDetail(matchedData);
         }
-    },[details, id])
+    }, [details, id])
     return (
-        <Container className="place-details">
-            <h2 className="text-center py-2">Plan Your Trip To {specificDetail?.placeName}</h2>
-            <Card>
-                <div className="card-img card-img-top">
-                    <Card.Img src={specificDetail?.img} />
+        <>
+            <Container className="place-details h-100vh">
+                <h2 className="text-center py-2">Plan Your Trip To {specificDetail?.placeName}</h2>
+                <Card>
+                    <div className="card-img card-img-top">
+                        <Card.Img src={specificDetail?.img} />
+
+                    </div>
                     <Card.Body>
-                        <Card.Title>{specificDetail.placeName}</Card.Title>
+                        <Card.Title><h2>{specificDetail.placeName}</h2> </Card.Title>
                     </Card.Body>
+                    <h4>"{specificDetail.tagline}"</h4>
                     <p>{specificDetail.description}</p>
-                </div>
-            </Card>
-        </Container>
+                </Card>
+            </Container>
+        </>
     );
 };
 

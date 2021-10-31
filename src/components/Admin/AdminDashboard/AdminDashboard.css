@@ -1,0 +1,18 @@
+.all-menu li {
+    list-style: none;
+    padding: 5px 10px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+.all-menu .manage {
+    background: #7206f7;
+}
+.all-menu .addPlace {
+    background: #f70661;
+}

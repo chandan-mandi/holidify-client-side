@@ -1,39 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
 import './Services.css';
 
 
 const Services = () => {
     const [services, setServices] = useState([]);
 
+    const history = useHistory();
     useEffect(() => {
+
         fetch('https://dry-ravine-15402.herokuapp.com/places')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+    
+
+    const handleDetails = (id) => {
+        const uri = `/place/${id}`;
+        history.push(uri)
+    }
     return (
         <div>
             <Container className="py-5">
                 <Row>
                     {services.map(service =>
-                        <Col lg={3} md={6}  className="service-col">
+                        <Col lg={3} md={6} sm={6} className="service-col">
                             <div className="service-card">
                                 <div className="poster">
                                     <img src={service.img} alt="" />
                                 </div>
                                 <div className="details">
-                                    <h2>{service.projectName} <br /> <span>City of Joy</span> </h2>
+                                    <h2>{service.placeName} <br /> <span>{service.tagline}</span> </h2>
                                     <div className="rating">
 
                                     </div>
                                     <div className="info">
-                                        <p>{service.description?.slice(0,25)}...</p>
+                                        <p>{service.description?.slice(0, 25)}...</p>
                                     </div>
                                     <div className="tags">
-                                        <span className="fantasy">Read More</span>
-                                        <span className="romance">Book Hotel</span>
+                                        <span onClick={() => handleDetails(service._id)} className="fantasy">Read More</span>
+                                        <Link to="/hotels"><span className="romance">Book Hotel</span></Link>
                                     </div>
-                                    
+
                                     <div className="star">
                                         {/* <h4>Cast</h4> */}
                                         <ul>
@@ -47,7 +56,7 @@ const Services = () => {
                             </div>
                         </Col>
                     )}
-                    
+
                 </Row>
             </Container>
         </div>

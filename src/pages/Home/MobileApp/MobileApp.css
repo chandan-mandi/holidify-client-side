@@ -1,0 +1,38 @@
+.foot-mob-sec {
+    background: url(http://rn53themes.net/themes/demo/travelz/images/cloud.png) no-repeat bottom center #f6f6f6;
+    padding: 100px 0px 60px 0px;
+    background-size: contain;
+    position: relative;
+    color: #333 !important;
+}
+.foot-mob-sec:before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to top, rgb(255 255 255 / 29%) 0%, rgb(240 240 240 / 0%) 100%);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    color: #333;
+}
+.foot-mob-sec h2 {
+    font-size: 48px;
+}
+.mobile-bg img {
+    width: 95%;
+}
+.foot-mob-sec ul li {
+    list-style-type: none;
+}
+.foot-mob-sec ul li .check-icon {
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    background: #8dced4;
+    border-radius: 3px;
+    text-align: center;
+    padding: 3px;
+    margin-right: 10px;
+    font-size: 12px;
+    vertical-align: text-bottom;
+}

@@ -49,15 +49,12 @@ const Footer = () => {
                     <Col md={3}>
                         <h6 className="pb-2">ABOUT US</h6>
                         <li><Link to="/">Our Facility</Link></li>
-                        <li><Link to="/">Our Team</Link></li>
+                        <li><Link to="/">Our Expert</Link></li>
                         <li><Link to="/">Our Goal</Link></li>
-                        <li><Link to="/">Health Measures</Link></li>
-                        <li><Link to="/">Job Opportunities</Link></li>
                     </Col>
                     <Col md={3}>
                         <h6 className="pb-2">QUICK MENU</h6>
                         <li><Link to="/home">Home</Link></li>
-                        <li><Link to="/doctors">Doctors</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/news">News</Link></li>

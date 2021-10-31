@@ -16,7 +16,7 @@
     overflow: hidden;
 }
 .service-col {
-    padding: 5px;
+    padding: 10px;
 }
 .service-card .poster::before {
     content: '';
@@ -68,7 +68,7 @@
 }
 .rating {
     position: relative;
-    padding: 5px 0;
+    padding: 1px 0;
 
 }
 .rating .fa {
@@ -87,11 +87,13 @@
 }
 .tags span {
     padding: 2px 5px;
-    margin-right: 2px;
+    margin-right: 3px;
+    margin-bottom: 3px;
     color: #fff;
     display: inline-block;
     border-radius: 4px;
     cursor: pointer;
+
 }
 .tags span.fantasy {
     background: #7206f7;
@@ -118,7 +120,7 @@
 
 }
 .star ul {
-    margin: 10px 0 0;
+    margin: 3px 0 0;
     padding: 0;
     display: flex;
 }

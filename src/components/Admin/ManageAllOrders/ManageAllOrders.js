@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -9,21 +10,32 @@ const ManageAllOrders = () => {
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
-
+    // delete an order
     const handleDelete = (id) => {
-        const url = `https://dry-ravine-15402.herokuapp.com/deleteOrder/${id}`
-        fetch(url, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.deletedCount){
-                alert('Deleted Successfully')
-                const remaining = orders.filter(order => order?._id !== id)
-                setOrders(remaining)
-            }
-        })
+        const proceed = window.confirm('Are you sure, You want to delete?')
+        if(proceed) {
+            const url = `https://dry-ravine-15402.herokuapp.com/deleteOrder/${id}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.deletedCount > 0){
+                    alert('Deleted Successfully')
+                    const remaining = orders.filter(order => order?._id !== id)
+                    setOrders(remaining)
+                }
+            })
+        }
+       
+    }
+    const history = useHistory();
+    
+
+    const handleUpdate = (id) => {
+        const uri = `/update/${id}`;
+        history.push(uri)
     }
     return (
         <div>
@@ -46,6 +58,7 @@ const ManageAllOrders = () => {
                             <td>{order.email}</td>
                             <td>{order.date}</td>
                             <Button onClick={()=> handleDelete(order._id)} variant="warning bg-warning m-1">Delete</Button>
+                            <Button onClick={()=> handleUpdate(order._id)} variant="warning bg-warning m-1">Update</Button>
                         </tr>
                     </tbody>
                 ))}

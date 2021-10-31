@@ -30,7 +30,6 @@ const Hotels = () => {
                                     <Card.Title>{hotel.hotelName}</Card.Title>
                                     <Card.Text>
                                         <p>{hotel.aboutHotel.slice(0,80)}...</p>
-                                        <p>{hotel._id}</p>
                                     </Card.Text>
                                     <Button onClick={() => handleDetails(hotel._id)} variant="warning">Book Now</Button>
                                 </Card.Body>
